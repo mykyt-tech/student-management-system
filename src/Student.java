@@ -1,0 +1,57 @@
+import java.util.ArrayList;
+
+public class Student {
+    private int id;
+    private String name;
+    private int age;
+    private ArrayList<Double> grades;
+
+    public Student(int id, String name, int age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public boolean addGrade(double grade) {
+        return grades.add(grade);
+    }
+
+    public double calculateGPA() {
+        double sum = 0;
+
+        for (double grade : grades) {
+            sum += grade;
+        }
+
+        return sum / grades.size();
+    }
+
+    public void displayInfo() {
+        System.out.println("Id: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.print("Grades: ");
+
+        for (double grade : grades) {
+            System.out.print(grade + ", ");
+        }
+
+        System.out.println();
+    }
+}
