@@ -1,4 +1,7 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class School {
     private static ArrayList<Student> students = new ArrayList<>();
@@ -71,6 +74,23 @@ public class School {
         }
 
         return null;
+    }
+
+    public static boolean exportSortedStudentListToFile() {
+        try (FileWriter writer = new FileWriter("students.txt")) {
+            ArrayList<Student> studentsCopy = new ArrayList<>(students);
+
+            studentsCopy.sort(Comparator.comparingDouble(Student::calculateGPA));
+
+            for (Student student : studentsCopy) {
+                writer.write(String.valueOf(student));
+            }
+
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     private static Student findStudentById(int id) {
