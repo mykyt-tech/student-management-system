@@ -7,6 +7,8 @@ public class School {
         System.out.println("========================================");
         System.out.println("  WELCOME TO STUDENT MANAGEMENT SYSTEM  ");
         System.out.println("========================================\n");
+
+        ConsoleUI.showMenu();
     }
 
     public static boolean addNewStudent(String name, int age) {
