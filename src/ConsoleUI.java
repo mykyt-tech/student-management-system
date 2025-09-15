@@ -17,7 +17,7 @@ public class ConsoleUI {
             System.out.println("3. Add new grade for student");
             System.out.println("4. View student GPA");
             System.out.println("5. Search student by ID or name");
-//            System.out.println("6. Export student list to a text file");
+            System.out.println("6. Export sorted student list to a text file");
             System.out.println("7. Exit");
             System.out.println("----------------------------------------");
             System.out.print("Enter your choice: ");
@@ -157,6 +157,18 @@ public class ConsoleUI {
 
                     System.out.println("----------------------------------------");
                     break;
+                case "6":
+                    boolean exported = School.exportSortedStudentListToFile();
+                    if (exported) {
+                        System.out.println("----------------------------------------");
+                        System.out.println("Student list exported successfully.");
+                        System.out.println("----------------------------------------");
+                    } else {
+                        System.out.println("----------------------------------------");
+                        System.out.println("Something went wrong.");
+                        System.out.println("Student list cannot be exported.");
+                        System.out.println("----------------------------------------");
+                    }
                 case "7":
                     running = false;
                     break;
