@@ -13,7 +13,7 @@ public class ConsoleUI {
             System.out.println("----------------------------------------");
             System.out.println("Please choose an option:");
             System.out.println("1. Add new student");
-//            System.out.println("2. Update student information");
+            System.out.println("2. Update student information");
 //            System.out.println("3. Add new grade for student");
 //            System.out.println("4. View student GPA");
 //            System.out.println("5. Search student by ID or name");
@@ -23,11 +23,12 @@ public class ConsoleUI {
             System.out.print("Enter your choice: ");
 
             String choice = scanner.nextLine();
+            int id;
+            String name;
+            int age;
+
             switch (choice) {
                 case "1":
-                    String name;
-                    int age;
-
                     System.out.println("----------------------------------------");
                     System.out.print("Enter student name: ");
                     name = scanner.nextLine();
@@ -44,6 +45,43 @@ public class ConsoleUI {
                         System.out.println("----------------------------------------");
                         System.out.println("Something went wrong.");
                         System.out.println("New student cannot be added.");
+                        System.out.println("----------------------------------------");
+                    }
+
+                    break;
+                case "2":
+                    System.out.println("----------------------------------------");
+                    System.out.print("Enter student id: ");
+                    id = scanner.nextInt();
+
+                    scanner.nextLine();
+
+                    System.out.print("Enter student name: ");
+                    name = scanner.nextLine();
+
+                    System.out.print("Enter student age: ");
+                    age = scanner.nextInt();
+                    System.out.println("----------------------------------------");
+
+                    boolean nameUpdated = School.updateStudentName(id, name);
+                    boolean ageUpdated = School.updateStudentAge(id, age);
+
+                    if (nameUpdated && ageUpdated) {
+                        System.out.println("----------------------------------------");
+                        System.out.println("Student information successfully updated.");
+                        System.out.println("----------------------------------------");
+                    } else {
+                        System.out.println("----------------------------------------");
+                        System.out.println("Something went wrong.");
+
+                        if (!nameUpdated) {
+                            System.out.println("Student name was not updated.");
+                        }
+
+                        if (!ageUpdated) {
+                            System.out.println("Student age was not updated.");
+                        }
+
                         System.out.println("----------------------------------------");
                     }
 
