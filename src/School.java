@@ -3,7 +3,11 @@ import java.util.ArrayList;
 public class School {
     private static ArrayList<Student> students = new ArrayList<>();
 
-    public static void main(String[] args) {}
+    public static void main(String[] args) {
+        System.out.println("========================================");
+        System.out.println("  WELCOME TO STUDENT MANAGEMENT SYSTEM  ");
+        System.out.println("========================================\n");
+    }
 
     public static boolean addNewStudent(String name, int age) {
         return students.add(new Student(students.size() + 1, name, age));
