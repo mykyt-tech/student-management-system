@@ -51,6 +51,22 @@ public class School {
         return -1;
     }
 
+    public static Student searchStudentByIdOrName(int id, String name, boolean byName) {
+        for (Student student : students) {
+            if (!byName) {
+                if (student.getId() == id) {
+                    return new Student(student);
+                }
+            } else {
+                if (student.getName().equals(name)) {
+                    return new Student(student);
+                }
+            }
+        }
+
+        return null;
+    }
+
     private static Student findStudentById(int id) {
         for (Student student : students) {
             if (student.getId() == id) {

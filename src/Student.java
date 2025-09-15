@@ -12,6 +12,12 @@ public class Student {
         this.age = age;
     }
 
+    public Student(Student student) {
+        this.id = student.getId();
+        this.name = student.getName();
+        this.age = student.getAge();
+    }
+
     public int getId() { return id; }
 
     public String getName() {
