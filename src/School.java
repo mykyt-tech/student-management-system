@@ -41,6 +41,16 @@ public class School {
         return false;
     }
 
+    public static double getStudentGPA(int id) {
+        Student student = findStudentById(id);
+
+        if (student != null) {
+            return student.calculateGPA();
+        }
+
+        return -1;
+    }
+
     private static Student findStudentById(int id) {
         for (Student student : students) {
             if (student.getId() == id) {
