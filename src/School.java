@@ -31,6 +31,16 @@ public class School {
         return false;
     }
 
+    public static boolean addNewGrade(int id, double grade) {
+        Student student = findStudentById(id);
+
+        if (student != null) {
+            return student.addGrade(grade);
+        }
+
+        return false;
+    }
+
     private static Student findStudentById(int id) {
         for (Student student : students) {
             if (student.getId() == id) {
