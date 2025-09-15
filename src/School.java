@@ -61,11 +61,11 @@ public class School {
         for (Student student : students) {
             if (!byName) {
                 if (student.getId() == id) {
-                    return new Student(student);
+                    return student;
                 }
             } else {
                 if (student.getName().equals(name)) {
-                    return new Student(student);
+                    return student;
                 }
             }
         }
@@ -74,9 +74,9 @@ public class School {
     }
 
     private static Student findStudentById(int id) {
-        for (Student student : students) {
-            if (student.getId() == id) {
-                return student;
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getId() == id) {
+                return students.get(i);
             }
         }
 

@@ -16,7 +16,7 @@ public class ConsoleUI {
             System.out.println("2. Update student information");
             System.out.println("3. Add new grade for student");
             System.out.println("4. View student GPA");
-//            System.out.println("5. Search student by ID or name");
+            System.out.println("5. Search student by ID or name");
 //            System.out.println("6. Export student list to a text file");
             System.out.println("7. Exit");
             System.out.println("----------------------------------------");
@@ -120,6 +120,42 @@ public class ConsoleUI {
                     double studentGPA = School.getStudentGPA(id);
                     System.out.println("Student GPA is " + studentGPA + ".");
 
+                    break;
+                case "5":
+                    System.out.println("----------------------------------------");
+                    System.out.print("Search by ID or name? ");
+
+                    String searchBy = scanner.nextLine();
+                    boolean byName;
+
+                    if (searchBy.equals("ID")) {
+                        byName = false;
+                    } else if (searchBy.equals("name")) {
+                        byName = true;
+                    } else {
+                        System.out.println("----------------------------------------");
+                        System.out.println("Incorrect option.");
+                        System.out.println("----------------------------------------");
+                        break;
+                    }
+
+                    if (byName) {
+                        System.out.print("Enter student name: ");
+                        name = scanner.nextLine();
+                        id = -1;
+                    } else {
+                        System.out.print("Enter student id: ");
+                        id = scanner.nextInt();
+                        scanner.nextLine();
+                        name = "";
+                    }
+
+                    System.out.println("----------------------------------------");
+
+                    Student student = School.searchStudentByIdOrName(id, name, byName);
+                    student.displayInfo();
+
+                    System.out.println("----------------------------------------");
                     break;
                 case "7":
                     running = false;

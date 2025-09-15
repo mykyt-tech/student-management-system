@@ -4,7 +4,7 @@ public class Student {
     private int id;
     private String name;
     private int age;
-    private ArrayList<Double> grades = new ArrayList<>();
+    private final ArrayList<Double> grades = new ArrayList<>();
 
     public Student(int id, String name, int age) {
         this.id = id;
@@ -56,10 +56,20 @@ public class Student {
         System.out.println("Age: " + age);
         System.out.print("Grades: ");
 
-        for (double grade : grades) {
-            System.out.print(grade + ", ");
+        for (int i = 0; i < grades.size(); i++) {
+            System.out.print(grades.get(i) + ", ");
         }
 
         System.out.println();
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", grades=" + grades +
+                '}';
     }
 }
